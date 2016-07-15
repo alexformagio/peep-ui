@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: F+wabcJlEcqDvWr8pQW/m5vbFePJWhs0Z811Qyq0YI/okUzNB1NnwYqdAGYsDDfhhXlMnQFRrZ5zWEmzmcXx6/ewrjs8NTC6n9vpUbOt36pr/ZYZVcU4mx/gixLjuSUn1tR9NK2pjixEM/o56oUHuhZATm+UbSGxs8FRsQL4EQ97Mlsqh3O/3UvQ6Zgp4hFPzZrKSVL2kKZLMcwh3J6KUmrEls8NHqv105NNtouX2MefiEFDPpltQByaBT6HwnDi9isMgjMoTr8G7NDvxdzAwV+VJtGMU7tbgdfoDU7FRVBklRbhxDPTItrR37SE1GBnKjw8TBRP+/74qt5fhXDwe5aBOA9iP/YXG75rjGSNQD/Es3++3oMmZzSoCOmBWGxE64DQfkvNSTM7i6r2oC/mtOumAUF165i5I4vc9W+8l/i0ll8T4bHYYBwYk1zTRSeVNt9yj7+f9WdEgJ+DLVA2FvRaiq9+MoJRcdU39hgzOuj0ZZUhrueWVZzpKMd6qHNNdzGN+w4Wfj0auMzkKa+dVpYcYPSzamlVB6cP5EZFidSjnQkhi55ohko3FfPbfEBf2MtPZrdsBlM4Npi0DxjgBQzwtNav48GYZCMywyhdxIhV1YnoZVN319QO9it4+GdQvu3QV+DnGcPA5SzBLC3JLB7lf/pUlTn540fjJh6740E=
+  app: glacial-fortress-54883
+  on:
+    repo: alexformagio/peep-ui
